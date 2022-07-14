@@ -1,0 +1,8 @@
+{
+  "services": {
+    "rewin.ubsi.logger": {
+      "class_name": "rewin.service.ubsi.log.Service",
+      "startup": true
+    }
+  }
+}
