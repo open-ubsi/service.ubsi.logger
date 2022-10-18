@@ -8,40 +8,28 @@
     <artifactId>rewin.service.ubsi.log</artifactId>
     <version>1.0.0</version>
 
+    <properties>
+        <java.version>1.8</java.version>
+        <ubsi.version>2.3.1</ubsi.version>
+    </properties>
+
     <name>rewin.service.ubsi.logger</name>
     <description>微服务：UBSI日志</description>
 
-    <properties>
-        <java.version>1.8</java.version>
-        <ubsi.version>2.3.0</ubsi.version>
-    </properties>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <encoding>utf-8</encoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <skipTests>true</skipTests>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <!--
+微服务：UBSI日志
+===
+版本更新说明：
+```
+```
+    -->
 
     <dependencies>
         <dependency>
-            <groupId>rewin.ubsi</groupId>
-            <artifactId>rewin.ubsi.core</artifactId>
+            <groupId>com.rewin</groupId>
+            <artifactId>ubsi-core-ce</artifactId>
             <version>${ubsi.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -51,4 +39,60 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>utf-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M7</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.rewin</groupId>
+                <artifactId>ubsi-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>     <!-- 插件的配置参数 -->
+                <services>      <!-- 本项目包含的微服务 -->
+                    <service>
+                        <name>rewin.ubsi.logger</name>	<!-- 服务名字 -->
+                        <className>rewin.service.ubsi.log.Service</className>	<!-- 服务类名 -->
+                        <configJson>    <!-- 微服务的配置参数，JSON格式的字符串 -->
+                            <![CDATA[
+                                {
+                                  "mongo_servers": [
+                                    {
+                                      "host": "mongo.host",
+                                      "port": 27017
+                                    }
+                                  ]
+                                }
+                            ]]>
+                        </configJson>
+                    </service>
+                </services>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>github packages</name>
+            <url>https://maven.pkg.github.com/open-ubsi/release</url>
+        </repository>
+    </distributionManagement>
 </project>
