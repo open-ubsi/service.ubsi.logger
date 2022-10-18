@@ -1,5 +1,5 @@
 # service.ubsi.logger
-微服务：UBSI日志
+微服务：UBSI日志（社区版）
 ===
 ```
 服务类：rewin.service.ubsi.log.Service

@@ -2,6 +2,11 @@
   "services": {
     "rewin.ubsi.logger": {
       "class_name": "rewin.service.ubsi.log.Service",
+      "jar_lib": {
+        "groupId": "com.rewin",
+        "artifactId": "ubsi-service-logger",
+        "version": "1.0.0"
+      },
       "startup": true
     }
   }

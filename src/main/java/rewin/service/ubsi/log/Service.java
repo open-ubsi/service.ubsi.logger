@@ -28,7 +28,7 @@ import java.util.concurrent.ConcurrentMap;
         tips = "UBSI日志服务（有内部缓冲，部署多实例时需要Redis环境）",
         version = "1.0.0",
         container = "2.3.0",
-        release = true
+        release = false         // false表示社区版
 )
 public class Service extends ServiceEntry {
 

@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>rewin.service.ubsi</groupId>
-    <artifactId>rewin.service.ubsi.log</artifactId>
+    <groupId>com.rewin</groupId>
+    <artifactId>ubsi-service-logger</artifactId>
     <version>1.0.0</version>
 
     <properties>
@@ -13,11 +13,11 @@
         <ubsi.version>2.3.1</ubsi.version>
     </properties>
 
-    <name>rewin.service.ubsi.logger</name>
-    <description>微服务：UBSI日志</description>
+    <name>rewin.service.ubsi.log</name>
+    <description>微服务：UBSI日志（社区版）</description>
 
     <!--
-微服务：UBSI日志
+微服务：UBSI日志（社区版）
 ===
 版本更新说明：
 ```
